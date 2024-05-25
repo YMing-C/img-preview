@@ -1,0 +1,41 @@
+.arrow-icon-wrap {
+  position: relative;
+  .arrow-icon {
+    position: absolute;
+    top: 50%;
+    inset-inline-end: 16px;
+    width: 10px;
+    color: currentcolor;
+    transform: translateY(-50%);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      opacity 0.3s;
+
+    &::before,
+    &::after {
+      position: absolute;
+      width: 6px;
+      height: 1.5px;
+      background-color: currentcolor;
+      border-radius: 6px;
+      transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+        transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+        top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+        color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      content: "";
+    }
+
+    &::before {
+      transform: rotate(45deg) translateX(2.5px);
+    }
+    &::after {
+      transform: rotate(-45deg) translateX(-2.5px);
+    }
+
+    &.rotate::before {
+      transform: rotate(-45deg) translateX(2.5px);
+    }
+    &.rotate::after {
+      transform: rotate(45deg) translateX(-2.5px);
+    }
+  }
+}

@@ -1,0 +1,90 @@
+@font-face {
+  font-family: "AlibabaPuHuiTi";
+  src: url("./assets/fonts/Alibaba-PuHuiTi-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "AlibabaPuHuiTi";
+  src: url("./assets/fonts/Alibaba-PuHuiTi-Medium.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "AlibabaPuHuiTi";
+  src: url("./assets/fonts/Alibaba-PuHuiTi-Bold.ttf");
+  font-weight: 600;
+}
+@import "./themes/normalize.less";
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  background: #eee;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: "Manrope-ExtraLight", "AlibabaPuHuiTi" !important;
+  color: #000 !important;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+i,
+em,
+b {
+  font-style: normal;
+  font-weight: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+input,
+textarea {
+  outline: none;
+}
+
+select:focus,
+option:focus {
+  outline: none;
+}
+
+#root {
+  height: 100%;
+}
