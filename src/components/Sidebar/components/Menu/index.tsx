@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import styles from "./index.module.less";
-import { ArrowIcon } from "components";
+import "./index.less";
+import ArrowIcon from "components/ArrowIcon";
 import { dataType, PER_ROW_COUNT, SINGLE_ROW_HEIGHT } from "./interface";
 
 const mockLi: Array<dataType> = [
@@ -48,12 +48,12 @@ const Menu: React.FC = () => {
   }, [activeKey]);
 
   return (
-    <ul className={styles.menu}>
+    <ul className="ym-menu">
       {mockLi.map((c) => {
         return (
           <li key={c.id}>
             <div
-              className={styles.menuTitle}
+              className="ym-menu-title"
               onClick={() => {
                 clickHandler(c.id);
               }}
@@ -61,16 +61,16 @@ const Menu: React.FC = () => {
               {c.name} <ArrowIcon rotate={activeKey === c.id} />
             </div>
             <ul
-              className={styles.subItemMenu}
+              className="ym-subitem-menu"
               style={{ height: activeKey === c.id ? `${subItemHeight}px` : 0 }}
             >
               {c.list.map((s) => (
-                <li className={styles.subItem} key={s}>
+                <li className="ym-subitem" key={s}>
                   {s}
                 </li>
               ))}
               {Array.from({ length: PER_ROW_COUNT }).map((_, idx) => (
-                <div key={idx} className={styles.emptyItem} />
+                <div key={idx} className="ym-empty-item" />
               ))}
             </ul>
           </li>

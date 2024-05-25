@@ -1,4 +1,4 @@
-.menu {
+.ym-menu {
   margin-top: 8px;
   flex: 1;
   overflow: auto;
@@ -10,7 +10,7 @@
     &.expend {
       background-color: #e8e8e8;
     }
-    .menuTitle {
+    .ym-menu-title {
       height: 38px;
       line-height: 38px;
       height: 100%;
@@ -18,20 +18,20 @@
       justify-content: space-between;
     }
 
-    .subItemMenu {
+    .ym-subitem-menu {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       height: 0;
       transition: height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
       gap: 8px;
-      .subItem {
+      .ym-subitem {
         width: 60px;
         text-align: center;
         border: 1px solid #ececec;
         padding: 6px 0;
       }
-      .emptyItem {
+      .ym-empty-item {
         width: 60px;
         height: 0;
       }

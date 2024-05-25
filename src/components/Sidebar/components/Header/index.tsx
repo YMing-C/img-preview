@@ -1,13 +1,13 @@
 import React from "react";
 import { PlusCircleOutlined } from "@ant-design/icons";
-import styles from "./index.module.less";
+import "./index.less";
 
 const Header: React.FC = () => {
   return (
-    <div className={styles.header}>
-      <div className={styles.logo}>IMG-PREVIEW</div>
+    <div className="ym-header">
+      <div className="ym-logo">IMG-PREVIEW</div>
       {/* TODO 点击后添加本地文件目录 */}
-      <PlusCircleOutlined className={styles.addIcon} />
+      <PlusCircleOutlined className="ym-add-icon" />
     </div>
   );
 };

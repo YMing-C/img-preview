@@ -1,13 +1,13 @@
 import React from "react";
 import { Input } from "antd";
-import styles from "./index.module.less";
+import "./index.less";
 import { Menu, Header } from "./components";
 
 const Sidebar: React.FC = () => {
   return (
-    <div className={styles.sidebar}>
+    <div className="ym-sidebar">
       <Header />
-      <div className={styles.navSearch}>
+      <div className="ym-nav-search">
         <Input placeholder="emmm.." />
       </div>
       <Menu />
