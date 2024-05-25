@@ -2,16 +2,19 @@ import React from "react";
 import { Input } from "antd";
 import "./index.less";
 import { Menu, Header } from "./components";
+import { ContextProvider } from "./context";
 
 const Sidebar: React.FC = () => {
   return (
-    <div className="ym-sidebar">
-      <Header />
-      <div className="ym-nav-search">
-        <Input placeholder="emmm.." />
+    <ContextProvider>
+      <div className="ym-sidebar">
+        <Header />
+        <div className="ym-nav-search">
+          <Input placeholder="emmm.." />
+        </div>
+        <Menu />
       </div>
-      <Menu />
-    </div>
+    </ContextProvider>
   );
 };
 

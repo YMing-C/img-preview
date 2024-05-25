@@ -1,18 +1,30 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
-import ErrorPage from "components/ErrorPage";
-import { Layout } from "components";
+import { Layout, ErrorPage } from "components";
+import Home from "./home";
+import zhCN from "antd/locale/zh_CN";
+import { ConfigProvider } from "antd";
+import "dayjs/locale/zh-cn";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        element: <Home />,
+        index: true,
+      },
+    ],
   },
 ]);
 
 function App() {
-  return <RouterProvider router={router}></RouterProvider>;
+  return (
+    <ConfigProvider locale={zhCN}>
+      <RouterProvider router={router}></RouterProvider>
+    </ConfigProvider>
+  );
 }
 
 export default App;

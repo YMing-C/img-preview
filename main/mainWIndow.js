@@ -17,6 +17,7 @@ const createWindow = () => {
       webviewTag: true,
       webSecurity: false,
       nodeIntegration: true,
+      contextIsolation: false,
       worldSafeExecuteJavaScript: false,
       enableRemoteModule: true,
     },
