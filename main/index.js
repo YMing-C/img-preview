@@ -1,10 +1,10 @@
-const { app } = require("electron");
-const createWindow = require("./mainWIndow");
-const { openPathSelectDialog } = require("./addPath");
+const { app } = require('electron')
+const createWindow = require('./mainWIndow')
+const { openPathSelectDialog } = require('./addPath')
 
 const onReady = () => {
-  createWindow();
-  openPathSelectDialog();
-};
+  createWindow()
+  openPathSelectDialog()
+}
 
-app.whenReady().then(onReady);
+app.whenReady().then(onReady)
