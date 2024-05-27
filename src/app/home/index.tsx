@@ -11,11 +11,13 @@ const Home: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.imgBox}>
-        {urlList?.map(c => (
-          <img src={c} alt="" key={c} />
-        ))}
-      </div>
+      {!!urlList?.length && (
+        <div className={styles.imgBox}>
+          {urlList?.map(c => (
+            <img src={c} alt="" key={c} />
+          ))}
+        </div>
+      )}
       {!selectedDirectory?.list?.length && <div className={styles.empty}>Hello img</div>}
     </div>
   )

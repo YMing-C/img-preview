@@ -1,7 +1,6 @@
 {
   "name": "img-preview",
   "main": "main/index.js",
-  "homepage": "./",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,20 +8,21 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "antd": "^5.17.3",
+    "argh": "^1.0.0",
     "concurrently": "^8.2.2",
-    "electron": "^30.0.8",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
+    "shelljs": "^0.8.5",
     "sort-by": "^1.2.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "node ./scripts/start.js",
-    "build": "react-app-rewired build",
+    "build": "node ./scripts/build.js",
     "start:main": "cross-env NODE_ENV=development electron .",
     "start:web": "react-app-rewired start"
   },
@@ -50,10 +50,13 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "customize-cra-5": "^5.0.0",
+    "electron-builder": "^24.13.3",
     "less": "^4.2.0",
     "less-loader": "^12.2.0",
     "react-app-rewired": "^2.2.1",
     "typescript": "^5.0.3",
-    "wait-on": "^7.2.0"
-  }
+    "wait-on": "^7.2.0",
+    "electron": "^30.0.8"
+  },
+  "build": {}
 }

@@ -16,7 +16,6 @@ const Menu: React.FC = () => {
   }
 
   const selectImgHandler = (directory: dataType, img: string) => {
-    console.log(directory, img)
     const idx = directory.list.findIndex(c => c === img)
     const fullPath = directory.originList.map(c => `${directory.path}\\${c}`)
 
