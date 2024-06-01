@@ -41,7 +41,7 @@ const Menu: React.FC = () => {
               onClick={() => {
                 clickHandler(c.id)
               }}>
-              {c.name} <ArrowIcon rotate={activeKey === c.id} />
+              {c.name} <ArrowIcon trigger={activeKey === c.id} />
             </div>
             <ul className="ym-subitem-menu" style={{ height: activeKey === c.id ? `${subItemHeight}px` : 0 }}>
               {c.list.map(s => (

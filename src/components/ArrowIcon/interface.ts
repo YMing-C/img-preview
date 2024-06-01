@@ -1,3 +1,4 @@
 export interface ArrowIconProps {
-  rotate?: boolean;
+  trigger?: boolean
+  style?: React.CSSProperties
 }

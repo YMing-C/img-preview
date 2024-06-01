@@ -1,15 +1,31 @@
 .ym-sidebar {
   width: 300px;
-  padding: 12px;
+  padding: 12px 12px 0;
   border-right: 1px solid rgba(5, 5, 5, 0.06);
   height: 100%;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
+  position: relative;
+  transition: width 0.3s ease;
+
+  .ym-header,
+  .ym-nav-search {
+    overflow: hidden;
+    transition: width 0.3s ease;
+  }
+
   .ym-header {
     height: 60px;
   }
-  .ym-nav-earch {
-    height: 30px;
+  .ym-nav-search {
+    height: 32px;
+  }
+
+  &.ym-sidebar-stow {
+    width: 0;
+    .ym-header,
+    .ym-nav-search {
+      width: 0;
+    }
   }
 }
