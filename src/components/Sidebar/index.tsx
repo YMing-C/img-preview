@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Input } from 'antd'
 import './index.less'
 import { Menu, Header, Trigger } from './components'
 
@@ -13,9 +12,6 @@ const Sidebar: React.FC = () => {
   return (
     <div className={`ym-sidebar${stowSideBar ? ' ym-sidebar-stow' : ''}`}>
       <Header />
-      <div className="ym-nav-search">
-        <Input placeholder="emmm.." />
-      </div>
       <Menu />
       <Trigger onClick={triggerSideBarHandler} rotate={stowSideBar} />
     </div>
