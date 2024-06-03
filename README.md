@@ -11,6 +11,7 @@
 - [ ] 支持每个文件夹中查看的图片单独制定排序规则
 - [ ] 将 BrowserWindow 修改为 preload 脚本形式
 - [x] 引入 electron-builder 进行打包
+- [ ] 侧边栏目录搜索
 
 ## 问题记录
 
