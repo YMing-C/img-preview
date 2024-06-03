@@ -1,8 +1,9 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useCallback, useEffect, useMemo } from 'react'
 import { PlusCircleOutlined } from '@ant-design/icons'
 import './index.less'
 import { debounce } from 'lodash'
 import { useDirectoryContext } from 'context'
+import { readDirectory, writeDirectory } from 'utils/file'
 
 const { ipcRenderer } = window.require('electron')
 
@@ -21,8 +22,13 @@ const Header: React.FC = () => {
     []
   )
 
+  const init = useCallback(async () => {
+    const directoryList = await readDirectory()
+    setDirectoryList(directoryList)
+  }, [setDirectoryList])
+
   useEffect(() => {
-    const listener = (e, res) => {
+    const listener = async (e, res) => {
       // 获取文件夹名称
       const pathArr = res.path.split('\\')
       const directoryName = pathArr[pathArr.length - 1]
@@ -31,7 +37,9 @@ const Header: React.FC = () => {
         return name.replace(/(\.jpg)|(\.jpeg)|(\.png)$/, '')
       })
 
-      setDirectoryList([
+      const directoryList = await readDirectory()
+      const newDirectoryList = [
+        ...directoryList,
         {
           id: crypto.randomUUID(),
           name: directoryName,
@@ -39,7 +47,11 @@ const Header: React.FC = () => {
           path: res.path,
           originList: res.list,
         },
-      ])
+      ]
+
+      writeDirectory(newDirectoryList)
+
+      setDirectoryList(newDirectoryList)
     }
 
     ipcRenderer.on('selected-directory', listener)
@@ -47,6 +59,10 @@ const Header: React.FC = () => {
       ipcRenderer.off('selected-directory', listener)
     }
   }, [setDirectoryList])
+
+  useEffect(() => {
+    init()
+  }, [init])
 
   return (
     <div className="ym-header">

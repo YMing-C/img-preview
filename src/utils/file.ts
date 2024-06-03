@@ -1,14 +1,15 @@
-const { app } = window.require('electron').remote
+import { getPath } from './index'
 const fs = window.require('fs')
-const directoryFile = app.getPath('userData') + '/directory.json'
 
-const defaultDirectory = []
+const defaultDirectory: any[] = []
+export const writeDirectory = async (list: any[] = defaultDirectory) => {
+  const directoryFile = (await getPath()) + '/directory.json'
 
-export const writeDirectory = (config = defaultDirectory) => {
-  fs.writeFileSync(directoryFile, JSON.stringify(config))
+  fs.writeFileSync(directoryFile, JSON.stringify(list))
 }
 
-export const readDirectory = () => {
+export const readDirectory = async () => {
+  const directoryFile = (await getPath()) + '/directory.json'
   if (!fs.existsSync(directoryFile)) {
     writeDirectory(defaultDirectory)
     return defaultDirectory

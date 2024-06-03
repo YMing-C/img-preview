@@ -3,19 +3,8 @@ import ReactDOM from 'react-dom/client'
 import './index.less'
 import App from './app'
 import reportWebVitals from './reportWebVitals'
-const { ipcRenderer, shell } = window.require('electron')
-
-let pathCache = ''
-const getPath = () => {
-  if (pathCache) return Promise.resolve(pathCache)
-  return new Promise((resolve, reject) => {
-    ipcRenderer.send('get-user-data-path')
-    ipcRenderer.once('read-user-data-path', (e, res) => {
-      pathCache = res
-      resolve(res)
-    })
-  })
-}
+import { getPath } from 'utils'
+const { shell } = window.require('electron')
 
 // // 挂载调试工具到 window
 window.whereIsApp = async () => {
