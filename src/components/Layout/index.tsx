@@ -1,9 +1,9 @@
-import React from "react";
-import Sidebar from "components/Sidebar";
-import { Outlet } from "react-router-dom";
-import { ContextProvider } from "context";
+import React from 'react'
+import Sidebar from 'components/Sidebar'
+import { Outlet } from 'react-router-dom'
+import { ContextProvider } from 'context'
 
-import "./index.less";
+import './index.less'
 
 const Layout: React.FC = () => {
   return (
@@ -15,7 +15,7 @@ const Layout: React.FC = () => {
         </div>
       </div>
     </ContextProvider>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

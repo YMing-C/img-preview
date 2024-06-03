@@ -9,10 +9,12 @@ const createWindow = () => {
     width: 1200,
     height: 700,
     useContentSize: true,
-    frame: false,
+    // frame: false,
+    // fullscreenable: false,
+    // transparent: true,
     title: '图片查看器',
-    transparent: false,
-    fullscreenable: false,
+    titleBarStyle: 'hidden',
+    titleBarOverlay: true,
     webPreferences: {
       webviewTag: true,
       webSecurity: false,
@@ -36,6 +38,7 @@ const createWindow = () => {
   }
 
   mainWindow.maximize()
+  mainWindow.setMovable(true)
 
   // 解决应用启动白屏问题
   mainWindow.on('ready-to-show', () => {
@@ -72,9 +75,9 @@ const createWindow = () => {
     mainWindow = null
   })
 
-  if (isDev) {
-    mainWindow.webContents.openDevTools()
-  }
+  // if (isDev) {
+  //   mainWindow.webContents.openDevTools()
+  // }
 
   return mainWindow
 }

@@ -17,9 +17,9 @@ const Home: React.FC = () => {
   return (
     <div className={styles.container}>
       {!!urlList?.length && (
-        <div className={styles.imgBox} style={{ gap: `${imgGap}px` ?? 0 }}>
+        <div className={styles.imgBox} style={{ gap: imgGap ? `${imgGap}px` : 0 }}>
           {urlList?.map(c => (
-            <img src={c} alt="" key={c} style={{ width: imgWith ?? 'auto' }} />
+            <img src={c} alt="" key={c} style={{ width: imgWith ? `${imgWith}px` : '1200px' }} />
           ))}
         </div>
       )}
