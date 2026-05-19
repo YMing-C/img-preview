@@ -26,12 +26,14 @@ const store = new Store<{ readerSettings: ReaderSettings }>({
 
 /** 创建主窗口，无边框模式，通过自定义标题栏拖拽和操作 */
 function createWindow(): void {
+  const iconPath = path.join(app.getAppPath(), 'build', 'icon.ico')
   const mainWindow = new BrowserWindow({
     width: 1280,
     height: 840,
     minWidth: 960,
     minHeight: 640,
     title: 'Koma',
+    icon: iconPath,
     backgroundColor: '#191919',
     frame: false,
     webPreferences: {
