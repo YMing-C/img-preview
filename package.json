@@ -1,0 +1,33 @@
+{
+    "name":  "koma",
+    "version":  "0.1.0",
+    "private":  true,
+    "description":  "Local-first desktop manga reader built with Electron, React, and TypeScript.",
+    "main":  "dist/main/main.js",
+    "type":  "module",
+    "scripts":  {
+                    "dev":  "concurrently -k \"npm:dev:renderer\" \"npm:dev:electron\"",
+                    "dev:renderer":  "vite --host 127.0.0.1",
+                    "dev:electron":  "wait-on tcp:5173 \u0026\u0026 tsc -p tsconfig.node.json \u0026\u0026 cross-env VITE_DEV_SERVER_URL=http://127.0.0.1:5173 electron .",
+                    "build":  "tsc -p tsconfig.node.json \u0026\u0026 vite build",
+                    "typecheck":  "tsc --noEmit \u0026\u0026 tsc -p tsconfig.node.json --noEmit",
+                    "preview":  "vite preview --host 127.0.0.1"
+                },
+    "dependencies":  {
+                         "@vitejs/plugin-react":  "latest",
+                         "electron-store":  "latest",
+                         "react":  "latest",
+                         "react-dom":  "latest"
+                     },
+    "devDependencies":  {
+                            "@types/node":  "latest",
+                            "@types/react":  "latest",
+                            "@types/react-dom":  "latest",
+                            "concurrently":  "latest",
+                            "cross-env":  "latest",
+                            "electron":  "latest",
+                            "typescript":  "latest",
+                            "vite":  "latest",
+                            "wait-on":  "latest"
+                        }
+}

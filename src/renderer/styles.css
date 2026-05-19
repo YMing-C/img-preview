@@ -1,0 +1,448 @@
+/* ================================================================
+   Koma — 全局样式
+   暗色主题，无边框窗口，书库与阅读器两种布局共用同一份样式表
+   ================================================================ */
+
+:root {
+  color: #f4f0e8;
+  background: #171717;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #171717;
+}
+
+/* ── 滚动条（暗色主题） ── */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+/* Firefox 滚动条 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
+}
+
+/* ── 通用表单元素 ── */
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+select,
+input {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: inherit;
+}
+
+button {
+  min-height: 36px;
+  padding: 0 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+button.primary {
+  border-color: #d6b56d;
+  background: #d6b56d;
+  color: #181511;
+  font-weight: 700;
+}
+
+button.primary:hover {
+  background: #e3c57f;
+}
+
+button.ghost {
+  color: #c8c1b6;
+}
+
+input,
+select {
+  min-height: 36px;
+  padding: 0 12px;
+  outline: none;
+}
+
+input::placeholder {
+  color: #9e9689;
+}
+
+select option {
+  background: #222;
+}
+
+/* ── 应用外层容器 ── */
+
+.app-frame {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* ── 自定义标题栏（无边框窗口） ── */
+
+.title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 36px;
+  padding: 0 12px;
+  -webkit-app-region: drag;       /* 拖拽移动窗口 */
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.title-bar-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8a857a;
+  letter-spacing: 0.04em;
+}
+
+.title-bar-controls {
+  display: flex;
+  gap: 2px;
+  -webkit-app-region: no-drag;    /* 窗口按钮区域不触发拖拽 */
+}
+
+.title-btn {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 28px;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #a9a196;
+}
+
+.title-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e8e3d8;
+}
+
+.title-btn-close:hover {
+  background: #e04040;
+  color: #fff;
+}
+
+/* ── 书库页 ── */
+
+.app-shell {
+  flex: 1;
+  padding: 32px;
+  background: #171717;
+  overflow: auto;
+}
+
+.library-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: 34px;
+  line-height: 1.1;
+}
+
+.header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.header-actions input {
+  width: min(280px, 40vw);
+}
+
+/* ── 通知 / 错误提示 ── */
+
+.notice {
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #d8d1c6;
+}
+
+.notice.error {
+  border-color: rgba(255, 110, 110, 0.35);
+  background: rgba(255, 80, 80, 0.1);
+  color: #ffc4c4;
+}
+
+/* ── 空状态 ── */
+
+.empty-state {
+  display: grid;
+  place-items: center;
+  min-height: 420px;
+  border: 1px dashed rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  text-align: center;
+  color: #c8c1b6;
+}
+
+.empty-state h2 {
+  margin-bottom: 8px;
+  color: #f4f0e8;
+}
+
+/* ── 漫画卡片网格 ── */
+
+.comic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+.comic-card {
+  min-width: 0;
+}
+
+.cover-button {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  border-radius: 8px;
+  background: #242424;
+}
+
+.cover-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cover-button span {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: #9e9689;
+}
+
+.comic-meta {
+  padding-top: 10px;
+}
+
+.comic-meta h2 {
+  overflow: hidden;
+  margin-bottom: 4px;
+  color: #f4f0e8;
+  font-size: 16px;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.comic-meta p {
+  margin-bottom: 8px;
+  color: #a9a196;
+  font-size: 13px;
+}
+
+.progress {
+  height: 4px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #d6b56d;
+}
+
+.card-actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* ── 阅读器 ── */
+
+.reader-content {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  flex: 1;
+  min-height: 0;
+  color: #f4f0e8;
+}
+
+.reader-toolbar {
+  z-index: 2;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  min-height: 58px;
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(20, 20, 20, 0.92);
+  backdrop-filter: blur(12px);
+}
+
+.reader-title {
+  min-width: 0;
+}
+
+.reader-title strong,
+.reader-title span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reader-title span {
+  margin-top: 2px;
+  color: #aca59b;
+  font-size: 12px;
+}
+
+.reader-controls {
+  display: flex;
+  justify-content: end;
+  gap: 8px;
+}
+
+.reader-viewport {
+  overflow: auto;
+  padding: 24px 20px 56px;
+  scroll-behavior: smooth;
+}
+
+.page-frame {
+  margin: 0 auto;
+  min-height: 180px;
+  transition: width 160ms ease;
+}
+
+.page-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+}
+
+/* ── 单页模式 ── */
+
+.reader-viewport.single-mode {
+  scroll-snap-type: y mandatory;
+  padding: 0;
+}
+
+.reader-viewport.single-mode .page-frame {
+  scroll-snap-align: start;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  transition: none;
+  width: 100%;
+}
+
+.reader-viewport.single-mode .page-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: none;
+}
+
+/* ── 响应式 ── */
+
+@media (max-width: 720px) {
+  .app-shell {
+    padding: 20px;
+  }
+
+  .library-header,
+  .reader-toolbar {
+    align-items: stretch;
+    grid-template-columns: 1fr;
+  }
+
+  .library-header {
+    display: grid;
+  }
+
+  .header-actions,
+  .reader-controls {
+    justify-content: stretch;
+  }
+
+  .header-actions input,
+  .header-actions button,
+  .reader-controls select,
+  .reader-controls button {
+    width: 100%;
+  }
+
+  .comic-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .reader-viewport {
+    padding-inline: 8px;
+  }
+}
